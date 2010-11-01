@@ -1,0 +1,25 @@
+Prettify Perl code using Vim 7.3's conceal feature, substituting Unicode
+characters for some Perl operators.
+
+Turn this:
+
+    open my $f, '<', 'README.mkd' or die("Cannot open file: $!");
+    foreach my $item (@items) { ... }
+    if ( $a >= 10 ) { ... }
+    $obj->method();
+    %a = ( key => 'value', key2 => 'value2' );
+
+Into this:
+
+    open my $f, '<', 'README.mkd" ∨ ☠("Cannot open file: $!");
+    ∀ my $item (@items) { ... }
+    if ( $a ≥ 10 ) { ... }
+    $obj↦method();
+    %a = ( key ⇒ 'value', key2 ⇒ 'value2' );
+
+The code is not changed at all: Vim's "conceal" feature
+simply "hides" these statements when the cursor is not on
+their line. Text is expanded for the line the cursor is at.
+
+Patches welcome ;)
+
